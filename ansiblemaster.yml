@@ -1,0 +1,8 @@
+---
+# file: ansible_controller.yml
+- hosts: ansiblemaster
+  become: yes
+  remote_user: vagrant
+  roles:
+    - "base-install"
+    - "aws-dynamic-inv-setup"

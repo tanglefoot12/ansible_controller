@@ -1,0 +1,25 @@
+---
+# tasks file for aws-dynamic-inv-setup
+#
+
+- name: "Copy the ec2.ini files accoss"
+  copy:
+    src: /home/tanglefoot12/work/ansible_controller/roles/aws-dynamic-inv-setup/files/ec2.ini
+    dest: /home/tanglefoot12/inventory/ec2.ini
+    mode: '0644'
+    owner: tanglefoot12
+    group: tanglefoot12
+
+- name: "Copy the ec2.py file accross"
+  copy:
+    src: /home/tanglefoot12/work/ansible_controller/roles/aws-dynamic-inv-setup/files/ec2.py
+    dest: /home/tanglefoot12/inventory/ec2.py
+    mode: '0644'
+    owner: tanglefoot12
+    group: tanglefoot12
+
+- name: "Intall boto3"
+  pip:
+    name: boto3
+
+

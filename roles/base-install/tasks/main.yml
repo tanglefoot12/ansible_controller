@@ -1,0 +1,36 @@
+---
+# tasks file for base-install
+#
+
+- name: "Install base packages"
+  apt: name={{ item }} state=installed
+  with_items:
+    - software-properties-common
+    - git
+    - python-pip
+    - python3-pip
+    - python3
+
+- name: "update OS"
+  apt:
+    upgrade: safe
+
+- name: "Upgrade pip"
+  pip: name=pip state=latest
+  tags:
+    - packages
+
+- name: "Create user"
+  user:
+    name: "tanglefoot12"
+    comment: "main user"
+    state: present
+    groups: sudo
+
+- name: "Create work directory and inventory dirctory"
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - '/home/tanglefoot12/work'
+    - '/home/tanglefoot12/inventory'
