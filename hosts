@@ -1,0 +1,14 @@
+[local]
+localhost ansible_connection=local
+
+[webservers]
+node1
+node2
+
+[dbservers]
+node3
+
+[rpis]
+rpi1
+rpi
+rpi3-mount
